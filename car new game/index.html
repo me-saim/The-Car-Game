@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="javascriptreact">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>game start page</title>
+    <style>
+        *{
+           margin: 0px;
+           padding: 0px;
+        }
+        body{
+            background-color: rgb(56, 178, 183);
+        }
+        .card{
+            width: 301px;
+            height: 300px;
+            border: 3px solid;
+            border-radius: 10px;
+            margin-left: 607px;
+            margin-top: -63px;
+            text-align: center;
+            background-color: aqua;
+            position: fixed;
+        }
+        h2{
+            color: red;
+            font-size: 40px;
+            filter: drop-shadow(0px 0px 4px 3px red);
+        }
+        button{
+            width: 167px;
+            height: 50px;
+            border-radius: 50px;
+            margin-top: 30px;
+            background-color: lawngreen;
+        }
+        button:hover{
+            background-color: red;
+        }
+        a{
+            font-size: 20px;
+            color: black;
+        }
+        #caren{
+    width: 100px;
+    height: 130px;
+    margin-left: 33px;
+    background-image: url(165649513901300-transport-car-sedan-green.png);
+    background-size: cover;
+    rotate: 284deg;
+    animation: move 5s linear infinite;
+}
+@keyframes move{
+    from{
+        transform:translateY(100px);
+    }
+    to{
+        transform: translateY(-750px);
+    }
+}
+#carmn{
+    width: 100px;
+    height: 130px;
+    margin-left: 33px;
+    background-image: url(car_topviewyellow.png);
+    background-size: cover;
+    rotate: 76deg;
+    animation: move 5s linear infinite;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="caren"></div>
+        <div id="carmn"></div>
+        <div class="card">
+            <h2>The</h2>
+            <h2>Car</h2>
+            <h2>Game</h2>
+            <button onclick="game()"><a href="game.html">Play</a></button>
+            <div id="caren"></div>
+            <div id="carmn"></div>
+        </div>
+        <audio id="music" autoplay loop src="index music.mp3" type="mp3"></audio>
+    </div>
+    <script>
+              var caren = document.getElementById('caren');
+var carmn = document.getElementById('carmn');
+var score_bord = document.getElementById('score-bord');
+var score = 1;
+
+//function to genrate random number.
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+  //function to make enemy car come randomly..
+caren.addEventListener("animationiteration", function () {
+    var random = randomNumber(0, 4) * 360;
+    caren.style.marginLeft = random + "px";
+});
+//game page redirection
+
+function game(){
+    window.location.href="game.html";
+}
+    </script>
+</body>
+</html>

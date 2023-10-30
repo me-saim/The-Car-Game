@@ -1,0 +1,87 @@
+*{
+    margin: 0px;
+    height: 0px;
+}
+
+.container{
+    width: 1530px;
+    height: 700px;
+    border: 1px solid;
+    background-color: rgb(56, 178, 183);
+}
+.road{
+    width: 600px;
+    height: 700px;
+    border: 1px solid;
+    margin-left: 478px;
+    background-image: url(roadani.gif);
+    
+}
+#caren{
+    width: 100px;
+    height: 130px;
+    margin-left: 33px;
+    background-image: url(165649513901300-transport-car-sedan-green.png);
+    background-size: cover;
+    rotate: 180deg;
+    animation: move 1s linear infinite;
+}
+@keyframes move{
+    from{
+        transform:translateY(40px);
+    }
+    to{
+        transform: translateY(-750px);
+    }
+}
+#carmn{
+    width: 100px;
+    height: 130px;
+    margin-top: 409px;
+    background-image: url(car_topviewyellow.png);
+    background-size: cover;
+}
+.score{
+    width: 300px;
+    height: 300px;
+    border: 2px solid;
+    border-radius: 41px;
+    margin-top: -506px;
+    margin-left: 57px;
+    background-color: aqua;
+    font-weight: 500;
+}
+h2{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 60px;
+    color: rgb(0, 0, 0);
+}
+#score-bord{
+    margin-top: 167px;
+    height: 50px;
+    margin-left: 63px;
+    text-align: center;
+    font-size: 60px;
+    width: 151px;
+}
+#gaov{
+    width:400px;
+    height: 140px;
+    background-color: rgb(71, 163, 245);
+    color: black;
+    font-size: 60px;
+    margin-top: -376px;
+    margin-left: 98px;
+    text-align: center;
+    display: none;
+    
+}
+#rest{
+    height: 50px;
+    width: 200px;
+    border-radius: 10px;
+}
+#rest:hover{
+    background-color: red;
+}

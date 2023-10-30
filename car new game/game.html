@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="javascriptreact">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple car game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="road">
+            <div id="caren"></div>
+            <div id="carmn"></div>
+            <div id="gaov">GAME OVER
+                <button id="rest">Restart</button>
+            </div>
+        </div>
+        <div class="score" id="score">
+            <h2>Game Score</h2>
+            <p id="score-bord"></p>
+        </div>
+    </div>
+    <audio id="gamem" src="game music.mp3"></audio>
+    <audio id="gameo" src="game over.mp3"></audio>
+    <audio id="gam" src="movement.mp3"></audio>
+    <script>
+       
+       var caren = document.getElementById('caren');
+var carmn = document.getElementById('carmn');
+var score_bord = document.getElementById('score-bord');
+var score = 1;
+var gam=document.getElementById('gam');
+var gameo=document.getElementById('gameo');
+//function to genrate random number.
+function randomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+  //function to make enemy car come randomly..
+caren.addEventListener("animationiteration", function () {
+    var random = randomNumber(0, 2) * 260;
+    caren.style.marginLeft = random + "px";
+    score_bord.innerHTML=score++;
+});
+//key control function
+document.addEventListener("keydown", function (e) {
+    var move=260;
+    console.log(e.keyCode);
+    if (e.keyCode == 37 ) {
+        carmn.style.marginLeft = "0px";
+        gam.play();
+    }
+    if (e.keyCode == 39 ) {
+        carmn.style.marginLeft = "260px";
+        gam.play();
+    }
+});
+  //game over function
+function checkCollision() {
+    var carenR = caren.getBoundingClientRect();
+    var carmnR = carmn.getBoundingClientRect();
+    var gaov =document.getElementById('gaov');
+
+    if (
+        carenR.top < carmnR.bottom &&
+        carenR.bottom > carmnR.top &&
+        carenR.left < carmnR.right &&
+        carenR.right > carmnR.left
+    ) {
+        gaov.style.display="block";
+        caren.style.display="none";
+        gameo.play();
+    }
+}
+
+function alertGame() {
+    alert("Game Over! Your Score: " + score);
+}
+
+let Interval = setInterval(checkCollision, 100);
+
+var rest=document.getElementById('rest');
+
+rest.addEventListener('click',function(){
+    location.reload();
+})
+ </script>
+</body>
+</html>
